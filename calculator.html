@@ -27,6 +27,17 @@ ctx.lineTo(400, 100);
 ctx.stroke();
 ctx.closePath();
 
+ctx.strokeStyle = "red";
+
+ctx.beginPath();
+ctx.moveTo(0, (1.0 - Math.sin(0)) * 100.0);
+
+for( var i = 1; i < 400; i++) {
+  ctx.lineTo(i, (1.0 - Math.sin(i / 20)) * 100.0);  
+}
+
+ctx.stroke();
+ctx.closePath();
 
 </script>
 </body>
