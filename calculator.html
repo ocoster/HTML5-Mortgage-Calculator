@@ -18,29 +18,44 @@ var canvas = document.getElementById("graph");
 
 var ctx = canvas.getContext("2d");
 
-ctx.beginPath();
-ctx.moveTo(0, 0);
-ctx.lineTo(0, 200);
-ctx.stroke();
-ctx.closePath();
+var freq = document.getElementById("frequency").value;
 
-ctx.beginPath();
-ctx.moveTo(0, 100);
-ctx.lineTo(400, 100);
-ctx.stroke();
-ctx.closePath();
+paint();
 
-ctx.strokeStyle = "red";
-
-ctx.beginPath();
-ctx.moveTo(0, (1.0 - Math.sin(0)) * 100.0);
-
-for( var i = 1; i < 400; i++) {
-  ctx.lineTo(i, (1.0 - Math.sin(i / 20)) * 100.0);  
+function paint(){
+	paintGraphLines();
+	paintSinusLine();
 }
 
-ctx.stroke();
-ctx.closePath();
+function paintSinusLine(){
+	ctx.strokeStyle = "red";
+
+	ctx.beginPath();
+	ctx.moveTo(0, (1.0 - Math.sin(0)) * 100.0);
+
+	for( var i = 1; i < 400; i++) {
+	  ctx.lineTo(i, (1.0 - Math.sin(i / freq)) * 100.0);  
+	}
+
+	ctx.stroke();
+	ctx.closePath();
+}
+
+function paintGraphLines(){
+	ctx.strokeStyle = "black";
+	
+	ctx.beginPath();
+	ctx.moveTo(0, 0);
+	ctx.lineTo(0, 200);
+	ctx.stroke();
+	ctx.closePath();
+
+	ctx.beginPath();
+	ctx.moveTo(0, 100);
+	ctx.lineTo(400, 100);
+	ctx.stroke();
+	ctx.closePath();
+}
 
 </script>
 </body>
