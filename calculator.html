@@ -9,5 +9,25 @@
   <label for="borrow">Borrow: </label><input type="range" min="50000" max="500000" value="50000" step="50000" name="borrow" />
 </form>
 <canvas id="graph" width="400" height="200"></canvas>
+<script type="text/javascript">
+
+var canvas = document.getElementById("graph");
+
+var ctx = canvas.getContext("2d");
+
+ctx.beginPath();
+ctx.moveTo(0, 0);
+ctx.lineTo(0, 200);
+ctx.stroke();
+ctx.closePath();
+
+ctx.beginPath();
+ctx.moveTo(0, 100);
+ctx.lineTo(400, 100);
+ctx.stroke();
+ctx.closePath();
+
+
+</script>
 </body>
 </html>
